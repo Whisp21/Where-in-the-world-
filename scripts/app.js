@@ -50,7 +50,6 @@ const fetchData = () => {
 
 const getDetails = (e) => {
   const countryName = e.target.closest('div').querySelector('h3').textContent;
-  console.log(countryName);
   getModalContent(countryName);
   modal.style.display = 'block';
 
@@ -68,7 +67,6 @@ const searchCountry = (e) => {
   e.preventDefault();
   const inputValue = input.value;
   countryList.innerHTML = '';
-  console.log(inputValue);
   const countryUrl = `https://restcountries.eu/rest/v2/name/${inputValue}`;
   getListContent(countryUrl);
 }
@@ -84,7 +82,7 @@ const toggleTheme = () => {
   let theme = document.getElementById("theme");
   let light = "styles/light.css";
   let dark = "styles/dark.css";
-// Checking what stylesheet the link tag has.
+
   if (theme.getAttribute("href") == light) {
     theme.href = dark;
   } else {
