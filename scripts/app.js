@@ -8,7 +8,7 @@ const darkThemeBtn = document.querySelector('button');
 const country =  document.getElementsByClassName('country-div');
 
 const getModalContent = async (countryName) => {
-  const selectedCountry = await axios.get(`https://restcountries.eu/rest/v2/name/${countryName}`);
+  const selectedCountry = await axios.get(`https://restcountries.com/v3.1/name/${countryName}`);
   const countryDetails = selectedCountry.data;
   console.log(selectedCountry)
   for(const details of countryDetails) {
@@ -44,7 +44,7 @@ const getListContent = async (url) => {
 }
 
 const fetchData = () => {
-  const urlReq = 'https://restcountries.eu/rest/v2/all';
+  const urlReq = 'https://restcountries.com/v3.1/all';
   getListContent(urlReq);
 }
 
@@ -67,13 +67,13 @@ const searchCountry = (e) => {
   e.preventDefault();
   const inputValue = input.value;
   countryList.innerHTML = '';
-  const countryUrl = `https://restcountries.eu/rest/v2/name/${inputValue}`;
+  const countryUrl = `https://restcountries.com/v3.1/name/${inputValue}`;
   getListContent(countryUrl);
 }
 
 const searchByRegion = (e) => {
   const region = e.target.closest('p').textContent;
-  const regionUrl = `https://restcountries.eu/rest/v2/region/${region}`;
+  const regionUrl = `https://restcountries.com/v3.1/region/${region}`;
   countryList.innerHTML = '';
   getListContent(regionUrl);
 }
