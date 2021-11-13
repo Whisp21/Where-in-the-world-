@@ -12,14 +12,14 @@ const getModalContent = async (countryName) => {
   const countryDetails = selectedCountry.data;
   console.log(selectedCountry)
   for(const details of countryDetails) {
-    modal.querySelector('img').src = details.flag;
-    modal.querySelector('h2').textContent = details.name;
+    modal.querySelector('img').src = details.flags.png;
+    modal.querySelector('h2').textContent = details.name.common;
     modal.querySelector('p').textContent = `Native Name: ${details.nativeName}`;
     modal.querySelector('p:nth-of-type(2)').textContent = `Population: ${details.population}`;
     modal.querySelector('p:nth-of-type(3)').textContent = `Region: ${details.region}`;
     modal.querySelector('p:nth-of-type(4)').textContent = `Sub-region: ${details.subregion}`;
     modal.querySelector('p:nth-of-type(5)').textContent = `Capital: ${details.capital}`;
-    modal.querySelector('p:nth-of-type(6)').textContent = `Top Level Domain: ${details.topLevelDomain}`;
+    modal.querySelector('p:nth-of-type(6)').textContent = `Top Level Domain: ${details.tld}`;
     modal.querySelector('p:nth-of-type(7)').textContent = `Currency: ${details.currencies[0].name}`;
     modal.querySelector('p:nth-of-type(8)').textContent = `Main Language: ${details.languages[0].name}`
   }
@@ -31,8 +31,8 @@ const getListContent = async (url) => {
     const countries = allCountryData.data;
     for(const country of countries) {
       const countryEl = document.importNode(countryDiv.content, true)
-      countryEl.querySelector('img').src = country.flag;
-      countryEl.querySelector('h3').textContent = country.name;
+      countryEl.querySelector('img').src = country.flags.png;
+      countryEl.querySelector('h3').textContent = country.name.common;
       countryEl.querySelector('p').textContent = `Population: ${country.population}`;
       countryEl.querySelector('p:nth-of-type(2)').textContent = `Region: ${country.region}`;
       countryEl.querySelector('p:nth-of-type(3)').textContent = `Capital: ${country.capital}`;
